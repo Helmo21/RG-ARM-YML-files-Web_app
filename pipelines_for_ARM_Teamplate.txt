@@ -1,0 +1,19 @@
+trigger:
+  branches:
+    include: [main]
+
+pool:
+  name: 'Azure pipelines'
+
+steps: 
+  - task: AzureRessourceManagerTeamplateDeployment@3
+    displayName: 'Create Ressource Group using ARM Teamplate'
+    inputs:
+      deploymentScope: 'Subscription1'
+      azureRessourceManagerConnection: 'Web-app-SC'
+      location: 'France Central' 
+      teamplateLocation: '?????'
+      csmFile: 'ARM-Teamplate\createsingleresourcegroup.json' 
+
+
+
